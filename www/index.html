@@ -1,50 +1,111 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>nativeDroid II - jQueryMobile Template</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+   <head>
+      <title>nativeDroid II - jQueryMobile Template</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-		<link rel="stylesheet" href="/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="/css/jquery.mobile.min.css" />
-		<link rel="stylesheet" href="/vendor/waves/waves.min.css" />
-		<link rel="stylesheet" href="/vendor/wow/animate.css" />
-		<link rel="stylesheet" href="/css/nativedroid2.css" />
+      <link rel="stylesheet" href="/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="/css/jquery.mobile.min.css" />
+      <link rel="stylesheet" href="/vendor/waves/waves.min.css" />
+      <link rel="stylesheet" href="/vendor/wow/animate.css" />
+      <link rel="stylesheet" href="/css/nativedroid2.css" />
 
-		<meta name="mobile-web-app-capable" content="yes">
-	 	<meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+      <meta name="mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+      <style>
+         .keyboardBtn
+         {
+            width: 19.5vw;
+            height: 5.5vh;
+            line-height: 6.5vh;
+         }
+         .code {
+ font-family: monospace;
+ text-shadow: 0 0 20px , 0 0 40px, 0 0 80px , 0 0 100px;
+     background: #000000;
+    color: green;
+    font-size: -webkit-xxx-large;
+    text-align: right;
+    padding-right: 10px;
+}
+      </style>
+   </head>
+   <body>
 
-	</head>
-	<body>
+      <div data-role="page"  style="    overflow: hidden; position:fixed;    background: url(/img/background.jpg);    background-size: cover;">
 
-		<div data-role="page">
+         <nd2-include data-src="/examples/fragments/panel.left.html"></nd2-include>
 
-			<nd2-include data-src="/examples/fragments/panel.left.html"></nd2-include>
+         <div data-role="panel" id="bottomsheet" data-animate="false" data-position='bottom' data-display="overlay">
+            <nd2-include data-src="/examples/fragments/bottom.sheet.html"></nd2-include>
+         </div>
 
-			<div data-role="panel" id="bottomsheet" data-animate="false" data-position='bottom' data-display="overlay">
-				<nd2-include data-src="/examples/fragments/bottom.sheet.html"></nd2-include>
-			</div>
+         <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+            <a href="#bottomsheet" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
+            <a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+            <center><h2 style="font-size: 4.8vw; padding-top: .5vh" class="wow fadeIn" data-wow-delay='0.2s'>Multi Convertitore Bistromatico</h2></center>
+         </div>
 
-			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
-				<a href="#bottomsheet" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
-				<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
-				<h1 class="wow fadeIn" data-wow-delay='0.4s'>Page Title</h1>
-			</div>
+         <div role="main" class="ui-content" data-inset="true">
+            <div style="z-index: 100;    position: absolute;    height: 100%;    width: 100%;    display: block;" class="wow bounceOut" data-wow-delay='0.7s' data-wow-duration="1s" data-wow-delete="true">
+               <div style="    margin: auto;    display: block;    line-height: 125vh;    width: 90vw;">
+                  <i style="font-size: 100vw;color: red;" class="zmdi zmdi-globe animated spinIt fast infinite"></i>
+                  <span style="position: absolute;top: -21vh;left: 0px;font-size: 40px;font-weight: 900;transform: scaleY(3);    -webkit-text-stroke: 1px #cacaca;">MuLTi CoNvErTiToRe</span>
+               </div>
+            </div>
+            <div class="row center-xs code" style="line-height: 20vh;    border-radius: 5%;
+    border: 1px solid black;">
+               <div class="col-xs-12">
+                  <div class="box">
+                     start
+                  </div>
+               </div>
+            </div>
+            <div class="row center-xs code" style="margin-top: 1vh; line-height: 20vh;    border-radius: 5%;
+    border: 1px solid black;">
+               <div class="col-xs-12">
+                  <div class="box">
+                     start
+                  </div>
+               </div>
+            </div>
+            <div class="row" style="margin-top: 4vh; height: 60vh;">
+               <div class="col-xs-12">
+                  <div class="box">
+                     <div class="row" style="height:10vh">
+                        <div class="col-xs-4"><span class="ui-btn ui-btn-inline ui-btn-raised waves-effect waves-button waves-effect waves-button keyboardBtn">1</span></div>
+                        <div class="col-xs-4"><span class="ui-btn ui-btn-inline ui-btn-raised waves-effect waves-button waves-effect waves-button keyboardBtn">2</span></div>
+                        <div class="col-xs-4"><span class="ui-btn ui-btn-inline ui-btn-raised waves-effect waves-button waves-effect waves-button keyboardBtn">3</span></div>
+                     </div>
+                     <div class="row"  style="height:10vh">
+                        <div class="col-xs-4"><span class="ui-btn ui-btn-inline ui-btn-raised waves-effect waves-button waves-effect waves-button keyboardBtn">4</span></div>
+                        <div class="col-xs-4"><span class="ui-btn ui-btn-inline ui-btn-raised waves-effect waves-button waves-effect waves-button keyboardBtn">5</span></div>
+                        <div class="col-xs-4"><span class="ui-btn ui-btn-inline ui-btn-raised waves-effect waves-button waves-effect waves-button keyboardBtn">6</span></div>
+                     </div>
+                     <div class="row"  style="height:10vh">
+                        <div class="col-xs-4"><span class="ui-btn ui-btn-inline ui-btn-raised waves-effect waves-button waves-effect waves-button keyboardBtn">7</span></div>
+                        <div class="col-xs-4"><span class="ui-btn ui-btn-inline ui-btn-raised waves-effect waves-button waves-effect waves-button keyboardBtn">8</span></div>
+                        <div class="col-xs-4"><span class="ui-btn ui-btn-inline ui-btn-raised waves-effect waves-button waves-effect waves-button keyboardBtn">9</span></div>
+                     </div>
+                     <div class="row"  style="height:10vh">
+                        <div class="col-xs-4"><span class="ui-btn ui-btn-inline ui-btn-raised waves-effect waves-button waves-effect waves-button keyboardBtn">C</span></div>
+                        <div class="col-xs-4"><span class="ui-btn ui-btn-inline ui-btn-raised waves-effect waves-button waves-effect waves-button keyboardBtn">0</span></div>
+                        <div class="col-xs-4"><span class="ui-btn ui-btn-inline ui-btn-raised waves-effect waves-button waves-effect waves-button keyboardBtn"><-</span></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script src="/js/jquery.min.js"></script>
+      <script src="/js/jquery-ui.min.js"></script>
+      <script src="/js/jquery.mobile.min.js"></script>
+      <script src="/vendor/waves/waves.min.js"></script>
+      <script src="/vendor/wow/wow.min.js"></script>
+      <script src="/js/nativedroid2.js"></script>
+      <script src="/nd2settings.js"></script>
+      <script type="text/javascript" src="cordova.js"></script>
 
-			<div role="main" class="ui-content" data-inset="false">
-				<p>(home)</p>
-			</div>
-
-		</div>
-
-		<script src="/js/jquery.min.js"></script>
-		<script src="/js/jquery-ui.min.js"></script>
-		<script src="/js/jquery.mobile.min.js"></script>
-		<script src="/vendor/waves/waves.min.js"></script>
-		<script src="/vendor/wow/wow.min.js"></script>
-		<script src="/js/nativedroid2.js"></script>
-		<script src="/nd2settings.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
-
-	</body>
+   </body>
 </html>
