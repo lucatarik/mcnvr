@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'DSEG7';
+    font-style: normal;
+    font-weight: bold;
+    src:
+        url(../fonts/DSEG7Modern-Bold.woff) format('woff'),
+        url(../fonts/DSEG7Modern-Bold.ttf) format('truetype')
+}
+
+@font-face {
+    font-family: 'DSEG7';
+    font-style: normal;
+    font-weight: normal;
+    src:
+        url(../fonts/DSEG7Modern-Regular.woff) format('woff'),
+        url(../fonts/DSEG7Modern-Regular.ttf) format('truetype')
+}
+
+@font-face {
+    font-family: 'DSEG14';
+    font-style: normal;
+    font-weight: bold;
+    src:
+        url(../fonts/DSEG14Modern-Bold.woff) format('woff'),
+        url(../fonts/DSEG14Modern-Bold.ttf) format('truetype')
+}
+
+@font-face {
+    font-family: 'DSEG14';
+    font-style: normal;
+    font-weight: normal;
+    src:
+        url(../fonts/DSEG14Modern-Regular.woff) format('woff'),
+        url(../fonts/DSEG14Modern-Regular.ttf) format('truetype')
+}

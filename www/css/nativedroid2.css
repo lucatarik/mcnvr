@@ -25,6 +25,7 @@
 @import url("material-design-iconic-font.min.css");
 @import url("RobotoDraft.css");
 @import url("Roboto.css");
+@import url("DSEG.css");
 
 body {
 	-webkit-transition: opacity 0.4s;

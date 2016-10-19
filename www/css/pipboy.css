@@ -1,0 +1,168 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,700,300);
+
+
+
+.bg {
+    width: calc(100% + 4vw);
+    height: 22vh;
+    position: relative;
+    background-color: #C7DAC7;
+    animation: pulse-bg 5s linear infinite;
+    left: -0.5rem;
+    z-index: 10;
+    border-radius: 90% / 10%;
+}
+
+.bg-lines {
+  background: repeating-linear-gradient(0deg, rgba(85, 85, 85, 0.25), rgba(85, 85, 85, 0.25) 4px, rgba(238, 238, 238, 0) 4px, rgba(238, 238, 238, 0) 5px);
+  width: calc(100% + 4vw);
+  height: 22vh;
+  position: relative;
+  top: -22vh;
+  left: -0.5rem;
+  z-index: 50;
+  border-radius: 90% / 10%;
+  overflow: auto;
+}
+.bg-lines:after {
+  content: '';
+  box-shadow: inset 0 0 100px 30px #262626;
+ width: calc(100% + 4vw);
+  height: 22vh;
+  position: relative;
+  top: -22vh;
+  left: -0.5rem;
+  display: block;
+  z-index: 50;
+  top: -23vh;
+  left: -0.5rem;
+  border-radius: 90% / 10%;
+  overflow: hidden;
+}
+
+.pipbody
+{
+   position: relative;
+    z-index: 11;
+    top: -35vh;
+    width: 98%;
+    display: inline-block;
+}
+
+.pipbodyupper
+{
+   position: relative;
+    z-index: 11;
+    top: -50vh;
+    float: right;
+    padding: 2px 5px 1px 5px;
+    display: inline-block;
+    border: 1px solid lime;
+}
+
+
+@keyframes pulse-bg {
+  0% {
+    background-color: #C7DAC7;
+  }
+  10% {
+    background-color: #b0cbb0;
+  }
+  20% {
+    background-color: #C7DAC7;
+  }
+  30% {
+    background-color: #99bc99;
+  }
+  40% {
+    background-color: #C7DAC7;
+  }
+  50% {
+    background-color: #b8d0b8;
+  }
+  60% {
+    background-color: #C7DAC7;
+  }
+  70% {
+    background-color: #a8c6a8;
+  }
+  80% {
+    background-color: #C7DAC7;
+  }
+  90% {
+    background-color: #b0cbb0;
+  }
+  100% {
+    background-color: #C7DAC7;
+  }
+}
+@keyframes pulse-bd {
+  0% {
+    border-color: #C7DAC7;
+  }
+  10% {
+    border-color: #b0cbb0;
+  }
+  20% {
+    border-color: #C7DAC7;
+  }
+  30% {
+    border-color: #99bc99;
+  }
+  40% {
+    border-color: #C7DAC7;
+  }
+  50% {
+    border-color: #b8d0b8;
+  }
+  60% {
+    border-color: #C7DAC7;
+  }
+  70% {
+    border-color: #a8c6a8;
+  }
+  80% {
+    border-color: #C7DAC7;
+  }
+  90% {
+    border-color: #b0cbb0;
+  }
+  100% {
+    border-color: #C7DAC7;
+  }
+}
+@keyframes pulse-c {
+  0% {
+    color: #C7DAC7;
+  }
+  10% {
+    color: #b0cbb0;
+  }
+  20% {
+    color: #C7DAC7;
+  }
+  30% {
+    color: #99bc99;
+  }
+  40% {
+    color: #C7DAC7;
+  }
+  50% {
+    color: #b8d0b8;
+  }
+  60% {
+    color: #C7DAC7;
+  }
+  70% {
+    color: #a8c6a8;
+  }
+  80% {
+    color: #C7DAC7;
+  }
+  90% {
+    color: #b0cbb0;
+  }
+  100% {
+    color: #C7DAC7;
+  }
+}
