@@ -5,29 +5,42 @@ function onDeviceReady() {
 }
 
 function openDialog(elem, callback) {
+   $.mobile.dialogHashKey = $.mobile.dialogHashKey.match(/\d+/)==null ? ($.mobile.dialogHashKey+0) : $.mobile.dialogHashKey.replace(/\d+/,(parseInt($.mobile.dialogHashKey.match(/\d+/)[0])+1));
    if (!(elem instanceof jQuery) )
    {
       elem = $(elem);
    }
-
-   popupDialogObj = $('<div data-role="popup" id="pouppo'+Math.floor(Math.random(100)*10000)+'" data-confirmed="no" data-transition="pop" data-overlay-theme="a" data-theme="a" data-dismissible="true">\
-                           <div data-role="header" data-theme="a"><h1></h1></div>\
-                           <div role="main" class="ui-content"></div>')
+   var parentPop = false;
+   var title=elem.data("title")||"";
+   var popupDialogObj = $('<div data-role="popup" data-confirmed="yes" data-transition="pop" data-overlay-theme="a" data-theme="a" data-dismissible="true">'+
+                           (title.length > 0?'<div data-role="header" data-theme="a"><h1>'+title+'</h1></div>':"")+
+                           '<div role="main" class="ui-content"></div>')
                         .appendTo($.mobile.pageContainer);
    popupDialogObj.find('.ui-content').append(elem.html());
    popupDialogObj.trigger('create');
    popupDialogObj.popup({
+      history: true,
       positionTo:"window",
       afterclose: function(event, ui) {
+         if (parentPop != false)
+         {
+
+            $.mobile.popup.active = parentPop;
+         }
          popupDialogObj.find(".optionConfirm").first().off('click');
          var isConfirmed = popupDialogObj.attr('data-confirmed') === 'yes' ? true : false;
          $(event.target).remove();
-         if (isConfirmed && callback) {
+         if (isConfirmed && typeof callback=="function") {
             callback();
          }
       },
-              beforeposition: function( event, ui ) {console.log(this,event,ui)},
-              create: function( event, ui ) {popupDialogObj.trigger('reposition');}
+              create: function( event, ui ) {
+               if (typeof $.mobile.popup.active != "undefined")
+               {
+                  parentPop = $.mobile.popup.active;
+                  $.mobile.popup.active = undefined;
+               }
+              }
    });
    popupDialogObj.popup('open');
    popupDialogObj.find(".optionConfirm").first().on('click', function() {
