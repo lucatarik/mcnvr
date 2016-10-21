@@ -51,6 +51,12 @@
             text-align: center;
             width: 1.3em;
          }
+         .unitlabel
+         {
+            margin-top: 1.5vh;
+            font-size: 40px;
+            font-weight: 300;
+         }
       </style>
    </head>
    <body>
@@ -118,7 +124,7 @@
                      <div class="row"  style="height:10vh">
                         <div class="col-xs-4"><span class="ui-btn ui-btn-inline ui-btn-raised waves-effect waves-button waves-effect waves-button keyboardBtn">C</span></div>
                         <div class="col-xs-4"><span class="ui-btn ui-btn-inline ui-btn-raised waves-effect waves-button waves-effect waves-button keyboardBtn">0</span></div>
-                        <div class="col-xs-4"><span class="ui-btn ui-btn-inline ui-btn-raised waves-effect waves-button waves-effect waves-button keyboardBtn"><-</span></div>
+                        <div class="col-xs-4"><span class="ui-btn ui-btn-inline ui-btn-raised waves-effect waves-button waves-effect waves-button keyboardBtn">,</span></div>
                      </div>
                   </div>
                </div>
@@ -130,31 +136,32 @@
       <ul data-role="listview" style="max-height: 75vh; overflow: scroll;">
         <li data-role="list-divider">DA</li>
 
-         <li class="ui-li-has-thumb">
-            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog('#tplunit',this); })(event, this)">
-               <div class="ui-li-thumb lst_thumbicon"><i class="fa fa-balance-scale" aria-hidden="true"></i></div>
-               <h2>Peso</h2>
-               <p>misure relative al peso (gr,kg)</p>
+         <li class="ui-li-has-thumb" from>
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog.apply(obj.parentNode,['#tplunit',selectField]); })(event, this)">
+               <div class="ui-li-thumb lst_thumbicon"><i class="fa fa-question" aria-hidden="true"></i></div>
+               <h2>Seleziona</h2>
+               <p>Clicca qui per selezionare</p>
             </a>
          </li>
    <li data-role="list-divider">A</li>
 
-         <li class="ui-li-has-thumb">
-            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog('#tplunit',this); })(event, this)">
-               <div class="ui-li-thumb lst_thumbicon"><i class="fa fa-tint" aria-hidden="true"></i></div>
-               <h2>Volume</h2>
-               <p>misure relative al volume (mL,L)</p>
+         <li class="ui-li-has-thumb" to>
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog.apply(obj.parentNode,['#tplunit',selectField]); })(event, this)">
+               <div class="ui-li-thumb lst_thumbicon"><i class="fa fa-question" aria-hidden="true"></i></div>
+               <h2>Seleziona</h2>
+               <p>Clicca qui per selezionare</p>
             </a>
          </li>
-   <li data-role="list-divider">DI</li>
+   <li data-role="list-divider" of>DI</li>
 
          <li class="ui-li-has-thumb">
-            <a href="#">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog.apply(obj.parentNode,[generateItems(),selectField]); })(event, this)">
                <div class="ui-li-thumb lst_thumbicon">H2O</i></div>
                <p>Acqua naturale</p>
             </a>
          </li>
    </ul>
+   <a href="#" class="ui-btn ui-btn-raised clr-primary">ok</a>
       </script>
       <script type="text/template" id="tplunitold" data-title="Seleziona unità di misura">
 
@@ -189,70 +196,23 @@
          </li>
    </ul>
       </script>
-      <script type="text/template" id="tplproducts" data-title="Seleziona un prodotto">
+      <script type="text/template" id="tplproducts">
+         <div>
       <form class="ui-filterable">
-         <input id="filterBasic-input" data-type="search" placeholder="Cerca">
+         <input id="filterProd-input" data-type="search" placeholder="Cerca">
       </form>
-      <ul data-role="listview" data-filter="true" data-autodividers="true" data-input="#filterBasic-input" style="max-height: 75vh; overflow: scroll;">
-         <li>
-            <a href="#">
-               <img src="//lorempixel.com/150/150/people/1/" class="ui-thumbnail ui-thumbnail-circular" />
-               <h2>Ethel Chancy</h2>
-               <p>ehtel.chancy@example.com</p>
-            </a>
-         </li>
-         <li>
-            <a href="#">
-               <img src="//lorempixel.com/150/150/people/2/" class="ui-thumbnail ui-thumbnail-circular" />
-               <h2>Lorean Gainer</h2>
-               <p>lorean87@mail.com</p>
-            </a>
-         </li>
-         <li>
-            <a href="#">
-               <img src="//lorempixel.com/150/150/people/3/" class="ui-thumbnail ui-thumbnail-circular" />
-               <h2>Juliet Gieseke</h2>
-               <p>flowerpower69@rainbow.com</p>
-            </a>
-         </li>
-         <li>
-            <a href="#">
-               <img src="//lorempixel.com/150/150/people/4/" class="ui-thumbnail ui-thumbnail-circular" />
-               <h2>Baliard Nomenna</h2>
-               <p>flowerpower69@rainbow.com</p>
-            </a>
-         </li>
-         <li>
-            <a href="#">
-               <img src="//lorempixel.com/150/150/people/5/" class="ui-thumbnail ui-thumbnail-circular" />
-               <h2>Gebba Oimas</h2>
-               <p>flowerpower69@rainbow.com</p>
-            </a>
-         </li>
-         <li>
-            <a href="#">
-               <img src="//lorempixel.com/150/150/people/6/" class="ui-thumbnail ui-thumbnail-circular" />
-               <h2>Ruper Hoebe</h2>
-               <p>flowerpower69@rainbow.com</p>
-            </a>
-         </li>
-         <li>
-            <a href="#">
-               <img src="//lorempixel.com/150/150/people/7/" class="ui-thumbnail ui-thumbnail-circular" />
-               <h2>Ivo Ganetto</h2>
-               <p>flowerpower69@rainbow.com</p>
-            </a>
-         </li>
-         <li>
-            <a href="#">
-               <img src="//lorempixel.com/150/150/people/8/" class="ui-thumbnail ui-thumbnail-circular" />
-               <h2>Alex Domini</h2>
-               <p>flowerpower69@rainbow.com</p>
-            </a>
-         </li>
+      <ul data-role="listview" data-filter="true" data-autodividers="true" data-input="#filterProd-input" style="max-height: 75vh; overflow: scroll;">
+         {{rows}}
+      </ul></div>
+      </script>
 
-      </ul>
-   </ul>
+      <script type="text/template" id="tplproducts_row">
+      <li>
+            <a href="#" onclick>
+               <img src="images/icons/{{image}}" class="ui-thumbnail ui-thumbnail-circular" />
+               <h2>{{label}}</h2>
+            </a>
+         </li>
       </script>
 
       <script type="text/template" id="tplweight" data-title="Peso">
@@ -287,84 +247,115 @@
          <input id="filterUnit-input" data-type="search" placeholder="Cerca">
       </form>
       <ul data-role="listview" data-filter="true" data-input="#filterUnit-input" style="max-height: 75vh; overflow: scroll;">
-      <li data-role="list-divider">PESO</li>
+      <li data-role="list-divider">Peso</li>
          <li class="ui-li-has-thumb">
-            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog('#tplunit',this); })(event, this)">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
                <div class="ui-li-thumb lst_thumbicon">mg</div>
-               <p>Milligrammi</p>
+               <div class="unitlabel">Milligrammi</div>
             </a>
          </li>
          <li class="ui-li-has-thumb">
-            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog('#tplunit',this); })(event, this)">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
                <div class="ui-li-thumb lst_thumbicon">g</div>
-               <p>Grammi</p>
+               <div class="unitlabel">Grammi</div>
             </a>
          </li>
          <li class="ui-li-has-thumb">
-            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog('#tplunit',this); })(event, this)">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
                <div class="ui-li-thumb lst_thumbicon">Kg</div>
-               <p>Kilogrammi</p>
+               <div class="unitlabel">Kilogrammi</div>
             </a>
          </li>
          <li class="ui-li-has-thumb">
-            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog('#tplunit',this); })(event, this)">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
                <div class="ui-li-thumb lst_thumbicon">oz</div>
-               <p>Oncia</p>
+               <div class="unitlabel">Oncia</div>
             </a>
          </li>
          <li class="ui-li-has-thumb">
-            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog('#tplunit',this); })(event, this)">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
                <div class="ui-li-thumb lst_thumbicon">lb</div>
-               <p>Libbra</p>
+               <div class="unitlabel">Libbra</div>
             </a>
          </li>
          <li class="ui-li-has-thumb">
-            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog('#tplunit',this); })(event, this)">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
                <div class="ui-li-thumb lst_thumbicon">lb</div>
-               <p>Pound</p>
+               <div class="unitlabel">Pound</div>
             </a>
          </li>
          <li class="ui-li-has-thumb">
-            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog('#tplunit',this); })(event, this)">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
                <div class="ui-li-thumb lst_thumbicon">St</div>
-               <p>Stone</p>
+               <div class="unitlabel">Stone</div>
             </a>
          </li>
       <li data-role="list-divider">Volume</li>
          <li class="ui-li-has-thumb">
-            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog('#tplunit',this); })(event, this)">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
                <div class="ui-li-thumb lst_thumbicon">ml</div>
-               <p>Millilitri</p>
+               <div class="unitlabel">Millilitri</div>
             </a>
          </li>
          <li class="ui-li-has-thumb">
-            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog('#tplunit',this); })(event, this)">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
                <div class="ui-li-thumb lst_thumbicon">cl</div>
-               <p>Centilitri</p>
+               <div class="unitlabel">Centilitri</div>
             </a>
          </li>
          <li class="ui-li-has-thumb">
-            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog('#tplunit',this); })(event, this)">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
                <div class="ui-li-thumb lst_thumbicon">l</div>
-               <p>Litri</p>
+               <div class="unitlabel">Litri</div>
             </a>
          </li>
          <li class="ui-li-has-thumb">
-            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog('#tplunit',this); })(event, this)">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
                <div class="ui-li-thumb lst_thumbicon">gl</div>
-               <p>Galloni</p>
+               <div class="unitlabel">Galloni</div>
             </a>
          </li>
          <li class="ui-li-has-thumb">
-            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog('#tplunit',this); })(event, this)">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
                <div class="ui-li-thumb lst_thumbicon">qt</div>
-               <p>Quarto</p>
+               <div class="unitlabel">Quarto</div>
             </a>
          </li>
          <li class="ui-li-has-thumb">
-            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog('#tplunit',this); })(event, this)">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
                <div class="ui-li-thumb lst_thumbicon">pi</div>
-               <p>Pinta</p>
+               <div class="unitlabel">Pinta</div>
+            </a>
+         </li>
+      <li data-role="list-divider">Unità</li>
+         <li class="ui-li-has-thumb">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
+               <div class="ui-li-thumb lst_thumbicon">tsp</div>
+               <div class="unitlabel">Cucchiaini</div>
+            </a>
+         </li>
+         <li class="ui-li-has-thumb">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
+               <div class="ui-li-thumb lst_thumbicon">tbsp</div>
+               <div class="unitlabel">Cucchiai</div>
+            </a>
+         </li>
+         <li class="ui-li-has-thumb">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
+               <div class="ui-li-thumb lst_thumbicon">cup</div>
+               <div class="unitlabel">Tazze</div>
+            </a>
+         </li>
+         <li class="ui-li-has-thumb">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
+               <div class="ui-li-thumb lst_thumbicon">bc</div>
+               <div class="unitlabel">Bicchieri</div>
+            </a>
+         </li>
+         <li class="ui-li-has-thumb">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
+               <div class="ui-li-thumb lst_thumbicon">qnt</div>
+               <div class="unitlabel">Quantità</div>
             </a>
          </li>
       </ul>
@@ -377,6 +368,7 @@
       <script src="/vendor/wow/wow.min.js"></script>
       <script src="/js/nativedroid2.js"></script>
       <script src="/nd2settings.js"></script>
+      <script src="/js/templateengine.js"></script>
       <script type="text/javascript" src="cordova.js"></script>
       <script src="/js/index.js"></script>
    </body>
