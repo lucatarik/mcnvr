@@ -152,12 +152,12 @@
                <p>Clicca qui per selezionare</p>
             </a>
          </li>
-   <li data-role="list-divider" of>DI</li>
+   <li data-role="list-divider">DI</li>
 
-         <li class="ui-li-has-thumb">
-            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog.apply(obj.parentNode,[generateItems(),selectField]); })(event, this)">
-               <div class="ui-li-thumb lst_thumbicon">H2O</i></div>
-               <p>Acqua naturale</p>
+         <li class="ui-li-has-thumb" of data-value="1">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();openDialog.apply(obj.parentNode,['#tplproducts',selectProduct]); })(event, this)">
+               <div class="ui-li-thumb lst_thumbicon"><img src="images/icons/acqua.png"></div>
+               <h2>Acqua naturale</h2>
             </a>
          </li>
    </ul>
@@ -197,17 +197,16 @@
    </ul>
       </script>
       <script type="text/template" id="tplproducts">
-         <div>
       <form class="ui-filterable">
          <input id="filterProd-input" data-type="search" placeholder="Cerca">
       </form>
       <ul data-role="listview" data-filter="true" data-autodividers="true" data-input="#filterProd-input" style="max-height: 75vh; overflow: scroll;">
          {{rows}}
-      </ul></div>
+      </ul>
       </script>
 
       <script type="text/template" id="tplproducts_row">
-      <li>
+      <li data-value="{{value}}">
             <a href="#" onclick>
                <img src="images/icons/{{image}}" class="ui-thumbnail ui-thumbnail-circular" />
                <h2>{{label}}</h2>
