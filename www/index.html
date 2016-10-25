@@ -57,6 +57,8 @@
             font-size: 40px;
             font-weight: 300;
          }
+         * { -webkit-touch-callout: none !important; }
+         * { -webkit-user-select: none !important; }
       </style>
    </head>
    <body>
@@ -88,7 +90,7 @@
                      <div class="bg"></div>
                      <div class="bg-lines"></div>
                      <span class="code pipbody">0</span>
-                     <span class="codeinfo pipbodyupper">cucchiai (tspn)|&#x25BC; </span>
+                     <div class="codeinfo pipbodyupper"><span>Cucchiai (tbsp)</span>|&#x25BC; </div>
                   </div>
 
                </div>
@@ -99,11 +101,11 @@
                      <div class="bg"></div>
                      <div class="bg-lines"></div>
                      <span class="code pipbody">0</span>
-                     <span class="codeinfo pipbodyupper">grammi (gr)|&#x25BC; </span>
+                     <div class="codeinfo pipbodyupper"><span>Grammi (gr)</span>|&#x25BC; </div>
                   </div>
                </div>
             </div>
-            <div class="row" style="margin-top: 2.5vh; height: 60vh;">
+            <div class="row calcpad" style="margin-top: 2.5vh; height: 60vh;">
                <div class="col-xs-12">
                   <div class="box">
                      <div class="row" style="height:10vh">
@@ -161,7 +163,7 @@
             </a>
          </li>
    </ul>
-   <a href="#" class="ui-btn ui-btn-raised clr-primary">ok</a>
+   <a href="#" class="ui-btn ui-btn-raised clr-primary" onclick="javascript:(function(e, obj){ obj.blur(); changeUnits.apply(obj,[]); })(event, this)">ok</a>
       </script>
       <script type="text/template" id="tplunitold" data-title="Seleziona unità di misura">
 
@@ -310,7 +312,7 @@
          </li>
          <li class="ui-li-has-thumb">
             <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
-               <div class="ui-li-thumb lst_thumbicon">gl</div>
+               <div class="ui-li-thumb lst_thumbicon">gal</div>
                <div class="unitlabel">Galloni</div>
             </a>
          </li>
@@ -322,8 +324,14 @@
          </li>
          <li class="ui-li-has-thumb">
             <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
-               <div class="ui-li-thumb lst_thumbicon">pi</div>
+               <div class="ui-li-thumb lst_thumbicon">pt</div>
                <div class="unitlabel">Pinta</div>
+            </a>
+         </li>
+         <li class="ui-li-has-thumb">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
+               <div class="ui-li-thumb lst_thumbicon">bbl</div>
+               <div class="unitlabel">Botte</div>
             </a>
          </li>
       <li data-role="list-divider">Unità</li>
@@ -353,6 +361,12 @@
          </li>
          <li class="ui-li-has-thumb">
             <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
+               <div class="ui-li-thumb lst_thumbicon">tgt</div>
+               <div class="unitlabel">Teglia Tonda (in cm)</div>
+            </a>
+         </li>
+         <li class="ui-li-has-thumb">
+            <a href="#" onclick="javascript:(function(e, obj){ obj.blur();})(event, this)">
                <div class="ui-li-thumb lst_thumbicon">qnt</div>
                <div class="unitlabel">Quantità</div>
             </a>
@@ -368,6 +382,7 @@
       <script src="/js/nativedroid2.js"></script>
       <script src="/nd2settings.js"></script>
       <script src="/js/templateengine.js"></script>
+      <script src="/js/math.min.js"></script>
       <script type="text/javascript" src="cordova.js"></script>
       <script src="/js/index.js"></script>
    </body>

@@ -1,5 +1,11 @@
-document.addEventListener('deviceready', onDeviceReady, false);
+if ("cordova" in window)
+   document.addEventListener('deviceready', onDeviceReady, false);
+else
+   document.addEventListener('DOMContentLoaded', onDeviceReady, false);
 
+function XOR(a,b) {
+  return ( a || b ) && !( a && b );
+}
 
 items = {
    "acciughe": {"label": "Acciughe", "value": 1.02, "image": "acciughe.png"},
@@ -180,11 +186,90 @@ items = {
    "zuccheropasticceria": {"label": "Zucchero (pasticceria)", "value": 0.55, "image": "zuccheropasticceria.png"}
 }
 
+toconvert = ['g','mg','Kg','oz','lb','St','bc','tgt'];
+from = null;
+to = null;
+coeff = 0;
 
+var cp=null;
 function onDeviceReady() {
    generateItems();
+   cp = document.getElementsByClassName("code pipbody");
+   $('.calcpad').on("click taphold",".ui-btn",function(e)
+   {
+      e.preventDefault();
+      e.stopPropagation();
+      var content = this.textContent;
+      switch (content)
+      {
+         case 'C':
+            if (e.type=="taphold")
+               cp_clearAll();
+            else
+               cp_clearOne();
+            break;
+         default:
+               cp_insert(content);
+            break;
+      }
+      return false;
+   });
+
+   math.createUnit({
+      g  : '1 ml',
+      mg : '0.01 ml',
+      Kg : '1000 ml',
+      oz : '28.3495 ml',
+      lb : '453.592 ml',
+      St : '6350.288 ml',
+      bc : '130 ml',
+      tgt: '4.71239 ml',
+      tsp: '1 teaspoon',
+      tbsp: '1 tablespoon',
+   },
+   {
+      override: true
+   });
+
+   selectUnits("tbsp","g",1);
+
 }
 
+function cp_clearAll()
+{
+   cp[0].innerHTML = 0;
+   cp[1].innerHTML = 0;
+}
+
+function cp_clearOne()
+{
+   if (cp[0].innerHTML.length > 1)
+      cp[0].innerHTML = cp[0].innerHTML.slice(0,-1);
+   else
+      cp[0].innerHTML = 0;
+   cp_calc();
+}
+
+function cp_insert(char)
+{
+   var inhtml = cp[0].innerHTML;
+   if (inhtml.length <= 10)
+   {
+      if (char == ',' && inhtml.match(/,/)!=null)
+         return;
+      if (char != ',' && inhtml.length == 1 && inhtml == '0' )
+         cp[0].innerHTML = char;
+      else
+         cp[0].innerHTML += char;
+      cp_calc();
+   }
+}
+
+function cp_calc()
+{
+console.log(math.unit(parseFloat(cp[0].innerHTML.replace(',','.')), from).to(to).toNumber()+coeff);
+   cp[1].innerHTML = math.format( math.eval(math.unit(parseFloat(cp[0].innerHTML.replace(',','.')), from).to(to).toNumber()+coeff),5)
+}
 
 
 function openDialog(elem, onclick, callback) {
@@ -291,4 +376,42 @@ function generateItems()
    }
    $('#tplproducts').html(tpl.replace('{{rows}}', rows));
    return true;
+}
+
+function changeUnits()
+{
+   var els = $('[from][data-value],[to][data-value],[of][data-value]');
+   if (els.length < 3)
+      return openPopup("Seleziona le unità da convertire");
+   var from = els.filter('[from]');
+   var to   = els.filter('[to]');
+   if (from.attr('data-value') == to.attr('data-value'))
+      return openPopup("Non puoi convertire la stessa misura");
+   var labels = $('.codeinfo.pipbodyupper span');
+   labels.eq(0).html(from.find('p').html());
+   labels.eq(1).html(to.find('p').html());
+   selectUnits(from.attr('data-value'),to.attr('data-value'),els.filter('[of]').attr('data-value'));
+   $(this).closest('[data-role="popup"]').popup('close');
+}
+
+function selectUnits(from,to,of)
+{
+   if (XOR(toconvert.indexOf(from)!=-1,toconvert.indexOf(to)!=-1) & of!=1)
+   {
+      if(toconvert.indexOf(from)!=-1)
+         coeff = " * "+of;
+      else
+         coeff = " / "+of;
+   }
+   window.from = from;
+   window.to = to;
+   cp_calc();
+
+}
+
+function openPopup(message,title)
+{
+   message = message||"";
+   title = title || "Attenzione!";
+   openDialog("<div data-title='"+title+"'>"+message+"<br><br><button onclick=\"javascript:(function(e, obj){ $(obj).closest('[data-role=popup]').popup('close'); })(event, this)\">OK!</button></div>")
 }
